@@ -31,7 +31,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 mb-5">
-              Delivering innovative technical solutions across InsureTech, LMS, E-commerce, and Sport Venue Booking since December 2024.
+              Delivering innovative technical solutions across InsureTech, LMS, E-commerce, and Sport Venue Booking since January 2025.
             </p>
             <div className="flex gap-3">
               <a
@@ -107,8 +107,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={15} className="text-blue-400 mt-0.5 shrink-0" />
-                <a href="mailto:info@shielify.com" className="text-sm text-slate-400 hover:text-blue-400 transition-colors">
-                  info@shielify.com
+                <a href="mailto:tri.tran@shielify.com" className="text-sm text-slate-400 hover:text-blue-400 transition-colors">
+                  tri.tran@shielify.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -126,7 +126,7 @@ export function Footer() {
           style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
         >
           <p className="text-xs text-slate-500">
-            © 2024–2026 Shielify. All rights reserved.
+            © 2025–2026 Shielify. All rights reserved.
           </p>
           <p className="text-xs text-slate-500">
             Built with excellence in Ho Chi Minh City, Vietnam.

@@ -53,7 +53,7 @@ const projects = [
     name: "Shielify",
     subtitle: "Low-Code Warranty Equipment System",
     category: "InsureTech",
-    year: "2024–2025",
+    year: "2025",
     status: "Live",
     statusColor: "#F97316",
     description:

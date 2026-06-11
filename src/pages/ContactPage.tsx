@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Send, CheckCircle, User, Building2, MessageSquare } from "lucide-react";
 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/a/macros/shielify.com/s/AKfycbyp_ZcO25_g7tYpDxR6nmTwG0X8s2sU_eWOKBOn6_gwzHgb62Owd1QhMtqdj_O8CNaL/exec";
+
 const contactInfo = [
   {
     icon: Phone,
@@ -13,8 +15,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@shielify.com",
-    href: "mailto:info@shielify.com",
+    value: "tri.tran@shielify.com",
+    href: "mailto:tri.tran@shielify.com",
     color: "#8b5cf6",
     bg: "#f5f3ff",
   },
@@ -50,13 +52,44 @@ export function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      setLoading(true);
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          subject: form.subject,
+          message: form.message,
+          source: "shielify.com",
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       setSubmitted(true);
-    }, 1400);
+      setForm({
+        name: "",
+        email: "",
+        company: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Submit contact form failed:", error);
+      alert(
+        "Sorry, we couldn't send your message right now. Please try again later or contact us via email."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -377,8 +410,7 @@ export function ContactPage() {
                 style={{ border: "1.5px solid #e8eef8", height: "280px" }}
               >
                 <iframe
-                  title="Shielify Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4647089898965!2d106.68829007469892!3d10.777988689372506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b08606f35%3A0x1c3c5daeb97e6b25!2s95%20%C4%90i%E1%BB%87n%20Bi%C3%AAn%20Ph%E1%BB%A7%2C%20Ph%C6%B0%E1%BB%9Dng%206%2C%20B%C3%ACnh%20Th%E1%BA%A1nh%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh!5e0!3m2!1sen!2svn!4v1718000000000!5m2!1sen!2svn"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2861810735576!2d106.69418381103297!3d10.789379558909465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f23b4a07859%3A0xb6140472b58be4be!2zTElHSFRIT1VTRSA5NSDEkEnhu4ZOIEJJw4pOIFBI4bum!5e0!3m2!1sen!2s!4v1781149618444!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

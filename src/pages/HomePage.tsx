@@ -16,7 +16,7 @@ import {
 const stats = [
   { value: "3+", label: "Successful Projects" },
   { value: "4", label: "Expert Co-founders" },
-  { value: "Dec 2024", label: "Established" },
+  { value: "Jan 2025", label: "Established" },
   { value: "4", label: "Tech Domains" },
 ];
 
@@ -110,7 +110,7 @@ export function HomePage() {
               }}
             >
               <Shield size={14} />
-              Established December 2024 · Ho Chi Minh City
+              Established January 2025 · Ho Chi Minh City
             </motion.div>
 
             <motion.h1
@@ -327,7 +327,7 @@ export function HomePage() {
                 }}
               >
                 <div className="text-white text-2xl" style={{ fontWeight: 900 }}>
-                  Est. 2024
+                  Est. Jan 2025
                 </div>
                 <div className="text-blue-200 text-sm">Ho Chi Minh City, Vietnam</div>
               </div>
