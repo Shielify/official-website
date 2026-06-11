@@ -17,5 +17,5 @@ export const router = createBrowserRouter([
     ],
   },
 ], {
-  basename: "/official-website",
+  basename: "/", // apply for repository "/official-website",
 });

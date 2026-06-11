@@ -6,7 +6,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   // use the repository name as the base path for GitHub Pages
   // customize domain, only use base: '/'
-  base: '/official-website/',
+  // apply for repository "/official-website",
+  base: '/', // '/official-website/',
   plugins: [
     react(),
     tailwindcss(),
